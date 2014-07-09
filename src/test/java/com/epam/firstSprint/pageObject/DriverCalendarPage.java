@@ -54,31 +54,6 @@ public class DriverCalendarPage {
 
 	public void paticularSelectionInFromFilter() throws InterruptedException {
 
-		/*
-		 * //locate the menu to hover over using its xpath WebElement menu =
-		 * Driver.get().findElement(locatorForItemInFromFilter);
-		 * 
-		 * //Initiate mouse action using Actions class Actions builder = new
-		 * Actions(Driver.get());
-		 * 
-		 * // move the mouse to the earlier identified menu option
-		 * builder.moveToElement(menu).build().perform();
-		 * 
-		 * // wait for max of 5 seconds before proceeding. This allows sub menu
-		 * appears properly before trying to click on it WebDriverWait wait =
-		 * new WebDriverWait(Driver.get(), 5);
-		 * wait.until(ExpectedConditions.presenceOfElementLocated
-		 * (locatorForPaticularItemInFromFilter)); // until this submenu is
-		 * found
-		 * 
-		 * //identify menu option from the resulting menu display and click
-		 * WebElement menuOption =
-		 * Driver.get().findElement(locatorForPaticularItemInFromFilter);
-		 * menuOption.click(); Thread.sleep(5000);
-		 */
-
-		// String valueToSelect=
-		// "Киевская область, Киев, Оболонский район, Вербная улица";
 		Select select = new Select(Driver.get().findElement(
 				locatorForFromFilter));
 		// finding the number of option using size() function
@@ -86,49 +61,7 @@ public class DriverCalendarPage {
 		// printing the size
 		System.out.print("number of options = " + i + "\n");
 		// selecting option in Drop-down using Visible Text
-		select.selectByIndex(2);
-		Thread.sleep(10000);
-
-		// selecting option in Drop-down using value attribute
-		// select.selectByValue("4");
-		// selecting option in Drop-down using value attribute
-		// select.selectByIndex(1);
-
-//		String valueToSelect = "Киевская область, Киев, Оболонский район, Вербная улица";
-//		WebElement select = Driver.get()
-//				.findElement(locatorForItemInFromFilter);
-//		Select dropDown = new Select(select);
-//		String selected = dropDown.getFirstSelectedOption().getText();
-//		if (selected.equals(valueToSelect)) {// do stuff already selected}
-//			List<WebElement> Options = dropDown.getOptions();
-//			for (WebElement option : Options) {
-//				if (option.getText().equals(valueToSelect)) {
-//					option.click();
-//				}
-//			}
-//		}
-//
-//		WebElement dropDownListBox = Driver.get().findElement(
-//				locatorForItemInFromFilter);
-//		Select clickThis = new Select(dropDownListBox);
-//		clickThis
-//				.selectByVisibleText("Киевская область, Киев, Оболонский район, Вербная улица");
-//		Thread.sleep(8000);
-//
-//		WebElement select = Driver.get()
-//				.findElement(locatorForItemInFromFilter);
-//		List<WebElement> options = select.findElements(By.tagName("option"));
-//		Actions builder = new Actions(Driver.get());
-//		for (WebElement option : options) {
-//			if ("Киевская область, Киев, Оболонский район, Вербная улица"
-//					.equals(option.getText())) {
-//				Action click = builder.click(option).build();
-//				click.perform();
-//				Thread.sleep(8000);
-//			}
-//
-//		}
-
+		select.selectByIndex(1);
 	}
 
 	public int countTripsInFromColume() {
