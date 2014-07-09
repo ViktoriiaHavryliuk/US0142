@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="2" name="First suite" parallel="none">
+	<test name="testSuit1">
+		<classes>
+			<class name="com.epam.firstSprint.tests.US01_4_2_1Test">
+			</class> <!-- US01_4_2_1 -->
+			<class name="com.epam.firstSprint.tests.US01_4_2_2Test">
+			</class> <!-- US01_4_2_2 -->
+			<class name="com.epam.firstSprint.tests.US01_4_2_3Test">
+			</class> <!-- US01_4_2_3 -->
+			<class name="com.epam.firstSprint.tests.US01_4_2_4Test">
+			</class> <!-- US01_4_2_4 -->
+			<class name="com.epam.firstSprint.tests.US01_4_2_5Test">
+			</class> <!-- US01_4_2_5 -->
+			<class name="com.epam.firstSprint.tests.US01_4_2_6Test">
+			</class> <!-- US01_4_2_6 -->
+			<class name="com.epam.firstSprint.tests.US01_4_2_7Test">
+			</class> <!-- US01_4_2_7 -->
+		</classes>
+	</test> <!-- PDRZHFirstSuit -->
+</suite> <!-- First suite -->
