@@ -19,10 +19,6 @@ public class DriverCalendarPage {
 	public By locatorForSeatsFreeFilter = By.id("free_seats");
 	public By locatorForRequestsFilter = By.id("requests");
 
-	public By locatorForPaticularItemInFromFilter = By
-
-	.xpath(".//*[@id='from_id']/option[2]");
-
 	private By logout = By.cssSelector(".btn.btn-default");
 
 	public boolean isElementPresent(By locator) {
@@ -43,22 +39,11 @@ public class DriverCalendarPage {
 		select.selectByIndex(0);
 	}
 
-<<<<<<< HEAD
+
 	public void paticularSelectionInFilter(By locator) {
 		isElementPresent(locator);
 		Select select = new Select(Driver.get().findElement(locator));
 		// selecting option in Drop-down using Index
-=======
-	public void paticularSelectionInFromFilter() throws InterruptedException {
-
-		Select select = new Select(Driver.get().findElement(
-				locatorForFromFilter));
-		// finding the number of option using size() function
-		int i = select.getOptions().size();
-		// printing the size
-		System.out.print("number of options = " + i + "\n");
-		// selecting option in Drop-down using Visible Text
->>>>>>> 232aa62c3c16ec8e41d4fe8a4687c0e467399036
 		select.selectByIndex(1);
 	}
 
