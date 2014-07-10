@@ -1,5 +1,7 @@
 package com.epam.firstSprint.tests;
 
+import java.sql.SQLException;
+
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
@@ -9,27 +11,28 @@ import com.epam.firstSprint.pageObject.DriverCalendarPage;
 import com.epam.firstSprint.pageObject.MainPage;
 import com.epam.firstSprint.pageObject.MyRoutsPage;
 
-public class US01_4_2_11Test extends BaseTest {
-	
+public class US01_4_2_11_1Test extends BaseTest {
+
 	final int NUMBER_OF_COLUME = 4;
-	final int QTY_OF_TRIPS = 3;
+	final int QTY_OF_SEATSTOTAL = 2;
 
 	@Test(groups = { "SecondSuit" })
-	public void functionalityOfFilterSeatsTotalTest() throws InterruptedException {
+	public void selectionOfParticularTotalSeatsTest() throws SQLException {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
 		DriverCalendarPage driverCalendarPage = myRoutsPage
 				.clickOnMyDriverCalendarTab();
 		driverCalendarPage
-				.selectAllInFilter(driverCalendarPage.locatorForSeatsTotalFilter);
+				.paticularSelectionInFilter(driverCalendarPage.locatorForSeatsTotalFilter);
 		
-		int expectedResultOfAllSelectionsInSeatsTotalFilter = QTY_OF_TRIPS;
-		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
+		// this user has two trip with 5 total seats
+		int expectedResultOfPaticularSelectionInSeatsTotalFilter = QTY_OF_SEATSTOTAL;		
+		int actual = driverCalendarPage
+				.countTripsInColume(NUMBER_OF_COLUME);
 		
-		Assert.assertEquals(
-				actual,
-				expectedResultOfAllSelectionsInSeatsTotalFilter,
-				"The results in colume \"Seats Total\" on the page and expected from paticular user is not same!");
+		Assert.assertEquals(actual,
+				expectedResultOfPaticularSelectionInSeatsTotalFilter,
+				"The results in colume on the page and expected is not same!");
 		
 		Reporter.log("Done", 2, true);
 	}

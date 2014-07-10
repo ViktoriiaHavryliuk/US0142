@@ -1,5 +1,7 @@
 package com.epam.firstSprint.tests;
 
+import java.sql.SQLException;
+
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
@@ -9,27 +11,28 @@ import com.epam.firstSprint.pageObject.DriverCalendarPage;
 import com.epam.firstSprint.pageObject.MainPage;
 import com.epam.firstSprint.pageObject.MyRoutsPage;
 
-public class US01_4_2_14Test extends BaseTest {
-	
+public class US01_4_2_14_1Test extends BaseTest {
+
 	final int NUMBER_OF_COLUME = 7;
-	final int QTY_OF_TRIPS = 3;
+	final int QTY_OF_REQUESTS = 2;
 
 	@Test(groups = { "SecondSuit" })
-	public void functionalityOfFilterRequestsTest() throws InterruptedException {
+	public void selectionOfParticularRequestTest() throws SQLException {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
 		DriverCalendarPage driverCalendarPage = myRoutsPage
 				.clickOnMyDriverCalendarTab();
 		driverCalendarPage
-				.selectAllInFilter(driverCalendarPage.locatorForRequestsFilter);
+				.paticularSelectionInFilter(driverCalendarPage.locatorForRequestsFilter);
 		
-		int expectedResultOfAllSelectionsInRequestsFilter = QTY_OF_TRIPS;
-		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
+		// this user has two trip with 0 requests
+		int expectedResultOfPaticularSelectionInRequestsFilter = QTY_OF_REQUESTS;		
+		int actual = driverCalendarPage
+				.countTripsInColume(NUMBER_OF_COLUME);
 		
-		Assert.assertEquals(
-				actual,
-				expectedResultOfAllSelectionsInRequestsFilter,
-				"The results in colume \"Requests\" on the page and expected from paticular user is not same!");
+		Assert.assertEquals(actual,
+				expectedResultOfPaticularSelectionInRequestsFilter,
+				"The results in colume on the page and expected is not same!");
 		
 		Reporter.log("Done", 2, true);
 	}

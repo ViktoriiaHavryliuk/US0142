@@ -12,7 +12,7 @@ import com.epam.firstSprint.pageObject.MyRoutsPage;
 public class US01_4_2_2Test extends BaseTest {
 
 	@Test(groups = { "FirstSuit" })
-	public void checkPresenceOfFilterToTest() throws InterruptedException {
+	public void checkPresenceOfFilterToTest() {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
 		DriverCalendarPage driverCalendarPage = myRoutsPage

@@ -8,8 +8,9 @@ import com.epam.firstSprint.core.Driver;
 
 public class MyRoutsPage {
 
-	@FindBy(xpath = ".//*[@id='li_driverCalendar']/a")	
-	//.//*[@id='li_driver']/a
+	@FindBy(xpath = ".//*[@id='li_driver']/a")
+	
+	//.//*[@id='li_driverCalendar']/a"
 	WebElement driverCalendar;
 
 	public MyRoutsPage() {

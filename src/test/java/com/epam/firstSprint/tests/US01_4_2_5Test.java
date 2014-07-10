@@ -12,8 +12,7 @@ import com.epam.firstSprint.pageObject.MyRoutsPage;
 public class US01_4_2_5Test extends BaseTest {
 
 	@Test(groups = { "FirstSuit" })
-	public void checkPresenceOfFilterSeatsOccupiedTest()
-			throws InterruptedException {
+	public void checkPresenceOfFilterSeatsOccupiedTest() {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
 		DriverCalendarPage driverCalendarPage = myRoutsPage

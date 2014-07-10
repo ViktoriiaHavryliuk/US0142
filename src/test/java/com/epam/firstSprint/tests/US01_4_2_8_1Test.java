@@ -12,18 +12,18 @@ import com.epam.firstSprint.pageObject.MainPage;
 import com.epam.firstSprint.pageObject.MyRoutsPage;
 
 public class US01_4_2_8_1Test extends BaseTest {
+	
+	final int NUMBER_OF_COLUME = 1;
 
 	@Test(groups = { "SecondSuit" })
-	public void selectionOfParticularTripTest() throws InterruptedException, SQLException {
+	public void selectionOfParticularFromTripTest() throws SQLException {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
 		DriverCalendarPage driverCalendarPage = myRoutsPage
 				.clickOnMyDriverCalendarTab();
-		driverCalendarPage
-				.clickOnFilter(driverCalendarPage.locatorForFromFilter);
-		driverCalendarPage.paticularSelectionInFromFilter();
-		int expectedResultOfAllSelectionsInFromFilter = countRecordsInFromColumnFromDb();//countRecordsFromDb();
-		int actual = driverCalendarPage.countTripsInFromColume();
+		driverCalendarPage.paticularSelectionInFilter(driverCalendarPage.locatorForFromFilter);
+		int expectedResultOfAllSelectionsInFromFilter = countRecordsInColumnFromDb(System.getProperty("test.queryFrom"));//countRecordsFromDb();
+		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
 		Assert.assertEquals(actual, expectedResultOfAllSelectionsInFromFilter,
 				"The results in colume on the page and from DB is not same!");
 		Reporter.log("Done", 2, true);

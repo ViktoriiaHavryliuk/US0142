@@ -19,20 +19,19 @@ public class BaseTest {
 	private static final String DB_PASSWORD = "123";
 
 	// SQL countRecordsInFromColumn statement
-	protected static int countRecordsInFromColumnFromDb() throws SQLException {
+	protected static int countRecordsInColumnFromDb(String query) throws SQLException {
 		Connection dbConnection = null;
 		Statement st = null;
 
 		// count statements
 		String countTrips = "select count(*)as qty"
 				+ " from point"
-				+ " where name = 'Киевская область, Киев, Оболонский район, Вербная улица'";
+				+ " where name = '"+query+"'";
 
 		int count = 0;
 		try {
 			dbConnection = getDBConnection();
 			st = dbConnection.createStatement();
-			System.out.println(countTrips);
 
 			// execute delete SQL stetement
 			ResultSet rs = st.executeQuery(countTrips);

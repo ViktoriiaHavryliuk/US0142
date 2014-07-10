@@ -10,6 +10,9 @@ import com.epam.firstSprint.pageObject.MainPage;
 import com.epam.firstSprint.pageObject.MyRoutsPage;
 
 public class US01_4_2_9Test extends BaseTest {
+	
+	final int NUMBER_OF_COLUME = 2;
+	final int QTY_OF_TRIPS = 3;
 
 	@Test(groups = { "SecondSuit" })
 	public void functionalityOfFilterToTest() throws InterruptedException {
@@ -20,11 +23,11 @@ public class US01_4_2_9Test extends BaseTest {
 		driverCalendarPage.clickOnFilter(driverCalendarPage.locatorForToFilter);
 		driverCalendarPage
 				.selectAllInFilter(driverCalendarPage.locatorForToFilter);
-		int expectedResultOfAllSelectionsInFromFilter = 3;
-		int actual = driverCalendarPage.countTripsInFromColume();
+		int expectedResultOfAllSelectionsInToFilter = QTY_OF_TRIPS;
+		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
 		Assert.assertEquals(
 				actual,
-				expectedResultOfAllSelectionsInFromFilter,
+				expectedResultOfAllSelectionsInToFilter,
 				"The results in colume \"To\" on the page and expected from paticular user is not same!");
 		Reporter.log("Done", 2, true);
 	}
