@@ -18,12 +18,12 @@ public class US01_4_2_8Test extends BaseTest {
 	public void functionalityOfFilterFromTest() {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
-		DriverCalendarPage driverCalendarPage = myRoutsPage
-				.clickOnMyDriverCalendarTab();
-		driverCalendarPage
-				.selectAllInFilter(driverCalendarPage.locatorForFromFilter);
+		DriverCalendarPage driverCalendarPage = myRoutsPage.clickOnMyDriverCalendarTab();
+		driverCalendarPage.selectAllInFromFilter();
+		
 		int expectedResultOfAllSelectionsInFromFilter = QTY_OF_TRIPS;
 		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
+		
 		Assert.assertEquals(actual, expectedResultOfAllSelectionsInFromFilter,
 				"The results in colume on the page and expected qty is not same!");
 		Reporter.log("Done", 2, true);

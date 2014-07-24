@@ -17,9 +17,9 @@ public class US01_4_2_4Test extends BaseTest {
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
 		DriverCalendarPage driverCalendarPage = myRoutsPage
 				.clickOnMyDriverCalendarTab();
+		
 		Assert.assertTrue(
-				driverCalendarPage
-						.isElementPresent(driverCalendarPage.locatorForSeatsTotalFilter),
+				driverCalendarPage.isFilterSeatsTotalPresent(),
 				"Filter \"Seats Total\" is not on the page!");
 		Reporter.log("Done", 2, true);
 	}

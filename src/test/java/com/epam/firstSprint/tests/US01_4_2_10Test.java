@@ -18,10 +18,8 @@ public class US01_4_2_10Test extends BaseTest {
 	public void functionalityOfFilterTripStatusTest() throws InterruptedException {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
-		DriverCalendarPage driverCalendarPage = myRoutsPage
-				.clickOnMyDriverCalendarTab();
-		driverCalendarPage
-				.selectAllInFilter(driverCalendarPage.locatorForTripStatusFilter);
+		DriverCalendarPage driverCalendarPage = myRoutsPage.clickOnMyDriverCalendarTab();
+		driverCalendarPage.selectAllInTripStatusFilter();
 		
 		int expectedResultOfAllSelectionsInTripStatusFilter = QTY_OF_TRIPS;
 		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);

@@ -17,8 +17,7 @@ public class US01_4_2_7Test extends BaseTest {
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
 		DriverCalendarPage driverCalendarPage = myRoutsPage
 				.clickOnMyDriverCalendarTab();
-		Assert.assertTrue(driverCalendarPage
-				.isElementPresent(driverCalendarPage.locatorForRequestsFilter),
+		Assert.assertTrue(driverCalendarPage.isFilterRequestsPresent(),
 				"Filter \"Requests\" is not on the page!");
 		Reporter.log("Done", 2, true);
 	}

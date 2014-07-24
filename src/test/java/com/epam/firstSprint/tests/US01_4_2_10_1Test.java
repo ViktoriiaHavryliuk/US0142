@@ -20,15 +20,12 @@ public class US01_4_2_10_1Test extends BaseTest {
 	public void selectionOfParticularTripStatusTest() throws SQLException {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
-		DriverCalendarPage driverCalendarPage = myRoutsPage
-				.clickOnMyDriverCalendarTab();
-		driverCalendarPage
-				.paticularSelectionInFilter(driverCalendarPage.locatorForTripStatusFilter);
+		DriverCalendarPage driverCalendarPage = myRoutsPage.clickOnMyDriverCalendarTab();
+		driverCalendarPage.particularSelectionInTripStatusFilter();
 		
 		// this user has one trip with Confirmed status
 		int expectedResultOfPaticularSelectionInTripStatusFilter = QTY_OF_CONFIRMEDTRIPSTATUS;		
-		int actual = driverCalendarPage
-				.countTripsInColume(NUMBER_OF_COLUME);
+		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
 		
 		Assert.assertEquals(actual,
 				expectedResultOfPaticularSelectionInTripStatusFilter,

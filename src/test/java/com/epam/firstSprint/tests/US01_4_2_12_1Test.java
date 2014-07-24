@@ -20,15 +20,12 @@ public class US01_4_2_12_1Test extends BaseTest {
 	public void selectionOfParticularSeatsOccupiedTest() throws SQLException {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
-		DriverCalendarPage driverCalendarPage = myRoutsPage
-				.clickOnMyDriverCalendarTab();
-		driverCalendarPage
-				.paticularSelectionInFilter(driverCalendarPage.locatorForSeatsOccupiedFilter);
+		DriverCalendarPage driverCalendarPage = myRoutsPage.clickOnMyDriverCalendarTab();
+		driverCalendarPage.particularSelectionInSeatsOccupiedFilter();
 		
-		// this user has two trip with 5 total seats
+		// this user has three trip with 5 total seats
 		int expectedResultOfPaticularSelectionInSeatsOccupiedFilter = QTY_OF_SEATSOCCUPIED;		
-		int actual = driverCalendarPage
-				.countTripsInColume(NUMBER_OF_COLUME);
+		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
 		
 		Assert.assertEquals(actual,
 				expectedResultOfPaticularSelectionInSeatsOccupiedFilter,

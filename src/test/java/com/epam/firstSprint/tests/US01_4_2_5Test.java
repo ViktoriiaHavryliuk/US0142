@@ -18,8 +18,7 @@ public class US01_4_2_5Test extends BaseTest {
 		DriverCalendarPage driverCalendarPage = myRoutsPage
 				.clickOnMyDriverCalendarTab();
 		Assert.assertTrue(
-				driverCalendarPage
-						.isElementPresent(driverCalendarPage.locatorForSeatsOccupiedFilter),
+				driverCalendarPage.isFilterSeatsOccupiedPresent(),
 				"Filter \"Seats occupied\" is not on the page!");
 		Reporter.log("Done", 2, true);
 	}

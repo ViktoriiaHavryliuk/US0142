@@ -20,15 +20,12 @@ public class US01_4_2_14_1Test extends BaseTest {
 	public void selectionOfParticularRequestTest() throws SQLException {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
-		DriverCalendarPage driverCalendarPage = myRoutsPage
-				.clickOnMyDriverCalendarTab();
-		driverCalendarPage
-				.paticularSelectionInFilter(driverCalendarPage.locatorForRequestsFilter);
+		DriverCalendarPage driverCalendarPage = myRoutsPage.clickOnMyDriverCalendarTab();
+		driverCalendarPage.particularSelectionInRequestsFilter();
 		
-		// this user has two trip with 0 requests
+		// this user has two trips with 0 requests
 		int expectedResultOfPaticularSelectionInRequestsFilter = QTY_OF_REQUESTS;		
-		int actual = driverCalendarPage
-				.countTripsInColume(NUMBER_OF_COLUME);
+		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
 		
 		Assert.assertEquals(actual,
 				expectedResultOfPaticularSelectionInRequestsFilter,

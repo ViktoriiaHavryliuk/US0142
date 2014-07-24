@@ -14,21 +14,18 @@ import com.epam.firstSprint.pageObject.MyRoutsPage;
 public class US01_4_2_11_1Test extends BaseTest {
 
 	final int NUMBER_OF_COLUME = 4;
-	final int QTY_OF_SEATSTOTAL = 2;
+	final int QTY_OF_SEATSTOTAL = 1;
 
 	@Test(groups = { "SecondSuit" })
 	public void selectionOfParticularTotalSeatsTest() throws SQLException {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
-		DriverCalendarPage driverCalendarPage = myRoutsPage
-				.clickOnMyDriverCalendarTab();
-		driverCalendarPage
-				.paticularSelectionInFilter(driverCalendarPage.locatorForSeatsTotalFilter);
+		DriverCalendarPage driverCalendarPage = myRoutsPage.clickOnMyDriverCalendarTab();
+		driverCalendarPage.particularSelectionInSeatsTotalFilter();
 		
-		// this user has two trip with 5 total seats
+		// this user has one trip with 5 total seats
 		int expectedResultOfPaticularSelectionInSeatsTotalFilter = QTY_OF_SEATSTOTAL;		
-		int actual = driverCalendarPage
-				.countTripsInColume(NUMBER_OF_COLUME);
+		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
 		
 		Assert.assertEquals(actual,
 				expectedResultOfPaticularSelectionInSeatsTotalFilter,

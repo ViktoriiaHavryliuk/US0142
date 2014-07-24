@@ -17,9 +17,9 @@ public class US01_4_2_3Test extends BaseTest {
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
 		DriverCalendarPage driverCalendarPage = myRoutsPage
 				.clickOnMyDriverCalendarTab();
+		
 		Assert.assertTrue(
-				driverCalendarPage
-						.isElementPresent(driverCalendarPage.locatorForTripStatusFilter),
+				driverCalendarPage.isFilterTripStatusPresent(),
 				"Filter \"Trip Status\" is not on the page!");
 		Reporter.log("Done", 2, true);
 	}

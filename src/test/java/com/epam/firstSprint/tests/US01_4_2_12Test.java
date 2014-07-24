@@ -18,10 +18,8 @@ public class US01_4_2_12Test extends BaseTest {
 	public void functionalityOfFilterSeatsOccupiedTest() throws InterruptedException {
 		MainPage mainPage = new MainPage();
 		MyRoutsPage myRoutsPage = mainPage.clickOnMyTripTab();
-		DriverCalendarPage driverCalendarPage = myRoutsPage
-				.clickOnMyDriverCalendarTab();
-		driverCalendarPage
-				.selectAllInFilter(driverCalendarPage.locatorForSeatsOccupiedFilter);
+		DriverCalendarPage driverCalendarPage = myRoutsPage.clickOnMyDriverCalendarTab();
+		driverCalendarPage.selectAllInSeatsOccupiedFilter();
 		
 		int expectedResultOfAllSelectionsInSeatsOccupiedFilter = QTY_OF_TRIPS;
 		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
