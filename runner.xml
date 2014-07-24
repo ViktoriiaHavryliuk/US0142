@@ -2,7 +2,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="First Sprint" verbose="1" annotations="JDK">
 	<suite-files>
+<<<<<<< HEAD
 		<suite-file path="testSuit1.xml"></suite-file>
 		<suite-file path="testSuit2.xml"></suite-file>
+=======
+		<suite-file path="testSuit1.xml">
+		<suite-file path="testSuit2.xml">
+>>>>>>> 08ad4c6d89ee2450c9b6f0bb3776fbff3bbcd5f8
 	</suite-files>
 </suite> 
