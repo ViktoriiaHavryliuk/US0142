@@ -22,7 +22,7 @@ public class US01_4_2_9_1Test extends BaseTest {
 		DriverCalendarPage driverCalendarPage = myRoutsPage.clickOnMyDriverCalendarTab();
 		driverCalendarPage.particularSelectionInToFilter();
 		
-		int expectedResultOfPaticularSelectionInToFilter = countRecordsInColumnFromDb(System.getProperty("test.queryTo"));//countRecordsFromDb();
+		int expectedResultOfPaticularSelectionInToFilter = driverCalendarPage.countRecordsInColumnFromDb(System.getProperty("test.queryTo"));//countRecordsFromDb();
 		int actual = driverCalendarPage.countTripsInColume(NUMBER_OF_COLUME);
 		
 		Assert.assertEquals(actual, expectedResultOfPaticularSelectionInToFilter,

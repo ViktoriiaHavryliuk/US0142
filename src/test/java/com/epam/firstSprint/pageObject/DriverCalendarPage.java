@@ -1,5 +1,6 @@
 package com.epam.firstSprint.pageObject;
 
+import java.sql.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -7,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.epam.firstSprint.core.DBConnections;
 import com.epam.firstSprint.core.Driver;
 
 public class DriverCalendarPage {
@@ -54,10 +56,6 @@ public class DriverCalendarPage {
 	public boolean isFilterRequestsPresent() {
 		return isElementPresent(locatorForRequestsFilter);
 	}
-
-//	public void clickOnFilter(By locator) {
-//		Driver.get().findElement(locator).click();
-//	}
 
 	public void selectAllInFilter(By locator) {
 		Select select = new Select(Driver.get().findElement(locator));
@@ -146,5 +144,18 @@ public class DriverCalendarPage {
 		return new BeforeLoginPage();
 	}
 
+	public int countRecordsInColumnFromDb(String query) throws SQLException{
+			DBConnections db = new DBConnections();
+			String countTrips = "select count(*)as qty"
+					+ " from point"
+					+ " where name = '"+query+"'";
+			ResultSet expectedResult = db.queryExecutor(countTrips);
+			expectedResult.next();
+				
+			int count = expectedResult.getInt(1); //use method getInt(1)/getString(1) to get int/String result from first colume!!!
+			
+		return count;
+		
+	}
 
 }
